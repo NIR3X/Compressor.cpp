@@ -10,10 +10,10 @@ TEST_SRC = CompressorTest.cpp
 TEST_DEST = CompressorTest.exe
 
 build: varsized_int $(OBJ)
-	$(AR) r -o $(DEST) $(OBJ) VarsizedInt.cpp/VarsizedInt.a
+	$(AR) r -o $(DEST) $(OBJ)
 
 build-test: build
-	$(CXX) $(CXXFLAGS) $(OBJ) VarsizedInt.cpp/VarsizedInt.a $(TEST_SRC) -o $(TEST_DEST) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(TEST_SRC) $(DEST) VarsizedInt.cpp/VarsizedInt.a -o $(TEST_DEST) $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
