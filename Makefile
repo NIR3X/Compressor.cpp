@@ -13,7 +13,7 @@ build: varsized_int $(OBJ)
 	$(AR) r -o $(DEST) $(OBJ) VarsizedInt.cpp/VarsizedInt.a
 
 build-test: build
-	$(CXX) $(OBJ) VarsizedInt.cpp/VarsizedInt.a $(TEST_SRC) -o $(TEST_DEST) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(OBJ) VarsizedInt.cpp/VarsizedInt.a $(TEST_SRC) -o $(TEST_DEST) $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
