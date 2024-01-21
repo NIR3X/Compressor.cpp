@@ -1,9 +1,6 @@
 #include "Compressor.h"
 #include "VarsizedInt.cpp/VarsizedInt.h"
 
-const size_t CCompressor::MinChunkSize = 3;
-const uint8_t CCompressor::ChunkSame = 0, CCompressor::ChunkMixed = 1;
-
 bool CCompressor::GetNextChunkSame(uint8_t* src, uint64_t srcSize, uint64_t pos, uint64_t* left, uint64_t* right) {
 	int16_t chunkValue = -1;
 	uint64_t chunkSize = 0;
