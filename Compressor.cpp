@@ -66,19 +66,19 @@ uint64_t CCompressor::Decompress(uint8_t* src, uint64_t srcSize, uint8_t* dest) 
 		uint64_t chunkSize = CVarsizedInt::Decode(srcPos);
 		uint8_t chunkType = chunkSize & 1; chunkSize >>= 1;
 		switch (chunkType) {
-			case ChunkSame: {
-					uint8_t chunkSameValue = src[i];
-					for (uint64_t j = 0; j < chunkSize; ++j, ++destPos) {
-						dest[destPos] = chunkSameValue;
-					}
-					++i;
+		case ChunkSame: {
+				uint8_t chunkSameValue = src[i];
+				for (uint64_t j = 0; j < chunkSize; ++j, ++destPos) {
+					dest[destPos] = chunkSameValue;
 				}
-				break;
-			case ChunkMixed:
-				for (uint64_t j = 0; j < chunkSize; ++j, ++destPos, ++i) {
-					dest[destPos] = src[i];
-				}
-				break;
+				++i;
+			}
+			break;
+		case ChunkMixed:
+			for (uint64_t j = 0; j < chunkSize; ++j, ++destPos, ++i) {
+				dest[destPos] = src[i];
+			}
+			break;
 		}
 	}
 	return destPos;
