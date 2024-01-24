@@ -46,6 +46,7 @@ int main() {
 	return 0;
 }
 ```
+
 In this example, the Compressor package compresses the input data, and then decompresses it, demonstrating the basic usage of the compression and decompression functionalities. Adjust the package integration as needed for your specific use case.
 
 ## License
